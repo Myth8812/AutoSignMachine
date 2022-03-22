@@ -73,13 +73,6 @@ jobs:
       if: steps.use-npm-cache.outputs.cache-hit != 'true' || steps.use-npm-depends.outputs.cache-hit != 'true'
       run: npm install
        
-    # 运行 52pojie 签到任务
-    - name: Run 52pojie daily task
-      
-      env:
-        htVD_2132_auth: ${{secrets.pojie_htVD_2132_auth}}
-        htVD_2132_saltkey: ${{secrets.pojie_htVD_2132_saltkey}}
-      run: node index.js 52pojie --htVD_2132_auth=${htVD_2132_auth} --htVD_2132_saltkey=${htVD_2132_saltkey}
 
     # 运行 bilibili 签到任务
     - name: Run bilibili daily task
